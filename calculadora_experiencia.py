@@ -52,11 +52,11 @@ with st.sidebar:
     st.write("""
     Esta ferramenta foi criada para oferecer agilidade no cálculo do tempo de experiência de trabalho. 
     Especialmente para situações que envolvem o cálculo de tempo em concursos públicos e editais de seleção.  
-    Muitas vezes, os períodos de experiência se sobrepõem e a contagem tradicional pode levar a erros de cálculo, resultando em uma contagem duplicada do tempo.
-    A calculadora foi projetada para lidar com essas situações, unindo os períodos de experiência que se sobrepõem, garantindo uma contagem precisa do tempo total de experiência.
+    Muitas vezes, os períodos de experiência são concomitantes e a contagem tradicional pode levar a erros de cálculo, resultando em uma contagem duplicada do tempo.
+    A calculadora foi projetada para lidar com essas situações, unindo os períodos de experiência concomitantes, garantindo uma contagem precisa do tempo total de experiência.
     
     **Como funciona a lógica:**
-    - **União de períodos:** Se dois períodos de trabalho acontecem ao mesmo tempo ou se tocam, a calculadora os une em um único bloco contínuo.
+    - **União de períodos:** Se dois períodos de trabalho possuem datas concomitantes, a calculadora os une em um único bloco contínuo.
     - **Padrão de tempo:** Para os cálculos, consideramos o ano com 365 dias e o mês com 30 dias.
     - **Arredondamento:** Quando o tempo restante após o cálculo dos anos inteiros atinge 6 meses ou mais, ele é contado como um novo ano completo.
     """)
