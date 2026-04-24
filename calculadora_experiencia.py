@@ -42,13 +42,9 @@ def calcular_tempo(periodos_mesclados):
     return total_dias, anos, meses, dias, anos_arredondados
 
 def limpar_dados():
-    # Restabelece o número de períodos para o padrão
+    # Restabelece o número de períodos e avança o contador de recomeço
     st.session_state.num_periodos = 5
-    
-    # Percorre a memória e esvazia explicitamente os campos de data
-    for chave in list(st.session_state.keys()):
-        if chave.startswith('inicio_') or chave.startswith('fim_'):
-            st.session_state[chave] = None
+    st.session_state.contador_recomeco += 1
 
 # --- Configuração da Barra Lateral ---
 with st.sidebar:
@@ -83,19 +79,22 @@ st.title("Calculadora de Tempo de Experiência")
 st.write("Elaborado por Alex Jordane, em colaboração com Inteligência Artificial, Gemini 3.1 Pro.")
 st.write("Por favor, insira as datas de início e fim para cada período profissional.")
 
-# Gerenciamento do número de períodos na tela
+# Gerenciamento do número de períodos e do contador de limpeza
 if 'num_periodos' not in st.session_state:
     st.session_state.num_periodos = 5
+if 'contador_recomeco' not in st.session_state:
+    st.session_state.contador_recomeco = 0
 
 periodos_inseridos = []
 
-# Criação colaborativa dos campos de data com limites ajustados
+# Criação colaborativa dos campos de data com chaves dinâmicas
 for i in range(st.session_state.num_periodos):
     col1, col2 = st.columns(2)
     with col1:
         data_inicio = st.date_input(
             f"Início do Período {i+1}", 
-            key=f"inicio_{i}", 
+            # A chave agora carrega o contador, renovando-se ao limpar
+            key=f"inicio_{i}_{st.session_state.contador_recomeco}", 
             format="DD/MM/YYYY", 
             value=None,
             min_value=date(1950, 1, 1),
@@ -104,7 +103,8 @@ for i in range(st.session_state.num_periodos):
     with col2:
         data_fim = st.date_input(
             f"Fim do Período {i+1}", 
-            key=f"fim_{i}", 
+            # A chave agora carrega o contador, renovando-se ao limpar
+            key=f"fim_{i}_{st.session_state.contador_recomeco}", 
             format="DD/MM/YYYY", 
             value=None,
             min_value=date(1950, 1, 1),
