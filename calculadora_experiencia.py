@@ -35,7 +35,7 @@ def calcular_tempo(periodos_mesclados):
     resto_dias = total_dias % 365
 
     # Arredondamento conforme solicitado
-    anos_arredondados = anos + 1 if resto_dias > 180 else anos
+    anos_arredondados = anos + 1 if resto_dias >= 180 else anos
 
     return total_dias, anos_arredondados
 
@@ -55,8 +55,8 @@ with st.sidebar:
     
     **Como funciona a lógica:**
     - **União de períodos:** Se dois períodos de trabalho possuem datas concomitantes, a calculadora os une em um único bloco contínuo.
-    - **Padrão de tempo:** Para os cálculos, consideramos o ano com 365 dias e o mês com 30 dias.
-    - **Arredondamento:** Quando o tempo restante após o cálculo dos anos inteiros atinge 6 meses ou mais, ele é contado como um novo ano completo.
+    - **Padrão de tempo:** Para os cálculos, consideramos o ano com 365 dias.
+    - **Arredondamento:** Quando o tempo restante após o cálculo dos anos inteiros atinge 180 dias ou mais, ele é contado como um novo ano completo.
     """)
     
     st.write("---")
