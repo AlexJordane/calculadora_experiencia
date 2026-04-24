@@ -48,7 +48,7 @@ def limpar_dados():
     # Percorre a memória e esvazia explicitamente os campos de data
     for chave in list(st.session_state.keys()):
         if chave.startswith('inicio_') or chave.startswith('fim_'):
-            # Opção 1: Deletar a chave (RECOMENDADO)
+            # Deletar a chave
             del st.session_state[chave]
 
 # --- Configuração da Barra Lateral ---
