@@ -50,7 +50,7 @@ def limpar_dados():
         if chave.startswith('inicio_') or chave.startswith('fim_'):
             # Opção 1: Deletar a chave (RECOMENDADO)
             del st.session_state[chave]
-            
+
 # --- Configuração da Barra Lateral ---
 with st.sidebar:
     st.header("Sobre a Calculadora")
