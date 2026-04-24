@@ -88,32 +88,11 @@ st.write("Por favor, insira as datas de início e fim para cada período profiss
 if 'num_periodos' not in st.session_state:
     st.session_state.num_periodos = 5
 
-periodos_inseridos = []
+# Inicializar flags de controle
+if 'mostrar_resultados' not in st.session_state:
+    st.session_state.mostrar_resultados = False
 
-# Criação colaborativa dos campos de data
-for i in range(st.session_state.num_periodos):
-    col1, col2 = st.columns(2)
-    with col1:
-        data_inicio = st.date_input(
-            f"Início do Período {i+1}", 
-            key=f"inicio_{i}", 
-            format="DD/MM/YYYY", 
-            value=None,
-            min_value=date(1950, 1, 1) # Limite mínimo ajustado
-        )
-    with col2:
-        data_fim = st.date_input(
-            f"Fim do Período {i+1}", 
-            key=f"fim_{i}", 
-            format="DD/MM/YYYY", 
-            value=None,
-            min_value=date(1950, 1, 1) # Limite mínimo ajustado
-        )
-    periodos_inseridos.append((data_inicio, data_fim))
-
-st.write("---")
-
-# Distribuição dos botões em três colunas para manter a harmonia visual
+# Distribuição dos botões em três colunas ANTES de renderizar os campos
 col_btn1, col_btn2, col_btn3 = st.columns(3)
 
 with col_btn1:
@@ -127,7 +106,33 @@ with col_btn2:
 with col_btn3:
     if st.button("Novo Cálculo"):
         limpar_dados()
+        st.session_state.mostrar_resultados = False
         st.rerun()
+
+# Renderizar os campos de data APÓS os botões
+periodos_inseridos = []
+
+for i in range(st.session_state.num_periodos):
+    col1, col2 = st.columns(2)
+    with col1:
+        data_inicio = st.date_input(
+            f"Início do Período {i+1}", 
+            key=f"inicio_{i}", 
+            format="DD/MM/YYYY", 
+            value=None,
+            min_value=date(1950, 1, 1)
+        )
+    with col2:
+        data_fim = st.date_input(
+            f"Fim do Período {i+1}", 
+            key=f"fim_{i}", 
+            format="DD/MM/YYYY", 
+            value=None,
+            min_value=date(1950, 1, 1)
+        )
+    periodos_inseridos.append((data_inicio, data_fim))
+
+st.write("---")
 
 # Apresentação dos resultados
 if calcular:
@@ -136,6 +141,13 @@ if calcular:
     if not periodos_mesclados:
         st.warning("Gentilmente, verifique se todas as datas foram preenchidas e se a ordem cronológica está correta.")
     else:
+        total_dias, anos, meses, dias, anos_arredondados = calcular_tempo(periodos_mesclados)
+        st.session_state.mostrar_resultados = True
+
+if st.session_state.mostrar_resultados:
+    periodos_mesclados = mesclar_periodos(periodos_inseridos)
+    
+    if periodos_mesclados:
         total_dias, anos, meses, dias, anos_arredondados = calcular_tempo(periodos_mesclados)
 
         st.subheader("Resultados:")
