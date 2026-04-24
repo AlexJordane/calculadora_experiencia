@@ -33,13 +33,11 @@ def calcular_tempo(periodos_mesclados):
     # Conversão padrão para apresentar os resultados
     anos = total_dias // 365
     resto_dias = total_dias % 365
-    meses = resto_dias // 30
-    dias = resto_dias % 30
 
     # Arredondamento conforme solicitado
     anos_arredondados = anos + 1 if resto_dias > 182 else anos
 
-    return total_dias, anos, meses, dias, anos_arredondados
+    return total_dias, anos_arredondados
 
 def limpar_dados():
     # Restabelece o número de períodos e avança o contador de recomeço
@@ -97,8 +95,7 @@ for i in range(st.session_state.num_periodos):
             key=f"inicio_{i}_{st.session_state.contador_recomeco}", 
             format="DD/MM/YYYY", 
             value=None,
-            min_value=date(1950, 1, 1),
-            max_value=date(2050, 12, 31)
+            min_value=date(1950, 1, 1)
         )
     with col2:
         data_fim = st.date_input(
@@ -107,8 +104,7 @@ for i in range(st.session_state.num_periodos):
             key=f"fim_{i}_{st.session_state.contador_recomeco}", 
             format="DD/MM/YYYY", 
             value=None,
-            min_value=date(1950, 1, 1),
-            max_value=date(2050, 12, 31)
+            min_value=date(1950, 1, 1)
         )
     periodos_inseridos.append((data_inicio, data_fim))
 
@@ -137,12 +133,11 @@ if calcular:
     if not periodos_mesclados:
         st.warning("Gentilmente, verifique se todas as datas foram preenchidas e se a ordem cronológica está correta.")
     else:
-        total_dias, anos, meses, dias, anos_arredondados = calcular_tempo(periodos_mesclados)
+        total_dias, anos_arredondados = calcular_tempo(periodos_mesclados)
 
         st.subheader("Resultados:")
         st.write(f"**(1) Total em dias:** {total_dias} dias")
-        st.write(f"**(2) Anos, meses e dias:** {anos} anos, {meses} meses e {dias} dias")
-        st.write(f"**(3) Anos (arredondado):** {anos_arredondados} anos")
+        st.write(f"**(2) Anos (arredondado):** {anos_arredondados} anos")
 
         st.write("---")
         st.write("**Detalhes dos períodos considerados (após unir interseções):**")
