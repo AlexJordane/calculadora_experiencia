@@ -42,10 +42,14 @@ def calcular_tempo(periodos_mesclados):
     return total_dias, anos, meses, dias, anos_arredondados
 
 def limpar_dados():
-    # Remove todas as chaves da sessão para recomeçar com a tela limpa
-    for key in list(st.session_state.keys()):
-        del st.session_state[key]
-
+    # Restabelece o número de períodos para o padrão
+    st.session_state.num_periodos = 5
+    
+    # Percorre a memória e esvazia explicitamente os campos de data
+    for chave in list(st.session_state.keys()):
+        if chave.startswith('inicio_') or chave.startswith('fim_'):
+            st.session_state[chave] = None
+            
 # --- Configuração da Barra Lateral ---
 with st.sidebar:
     st.header("Sobre a Calculadora")
@@ -93,14 +97,16 @@ for i in range(st.session_state.num_periodos):
             f"Início do Período {i+1}", 
             key=f"inicio_{i}", 
             format="DD/MM/YYYY", 
-            value=None
+            value=None,
+            min_value=date(1950, 1, 1) # Limite mínimo ajustado
         )
     with col2:
         data_fim = st.date_input(
             f"Fim do Período {i+1}", 
             key=f"fim_{i}", 
             format="DD/MM/YYYY", 
-            value=None
+            value=None,
+            min_value=date(1950, 1, 1) # Limite mínimo ajustado
         )
     periodos_inseridos.append((data_inicio, data_fim))
 
