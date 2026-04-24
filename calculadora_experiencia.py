@@ -35,7 +35,7 @@ def calcular_tempo(periodos_mesclados):
     resto_dias = total_dias % 365
 
     # Arredondamento conforme solicitado
-    anos_arredondados = anos + 1 if resto_dias > 182 else anos
+    anos_arredondados = anos + 1 if resto_dias > 180 else anos
 
     return total_dias, anos_arredondados
 
