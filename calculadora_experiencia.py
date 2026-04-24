@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import datetime
+from datetime import datetime, date
 
 def mesclar_periodos(periodos):
     # Filtra períodos válidos (onde início e fim foram preenchidos corretamente)
