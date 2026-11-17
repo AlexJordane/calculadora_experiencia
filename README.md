@@ -7,7 +7,8 @@ Muitas vezes, candidatos possuem vínculos de trabalho simultâneos (períodos c
 ## Links de Acesso
 
 - **Aplicação Online (Streamlit):** https://calculadoraexperiencia.streamlit.app/
-- **Repositório no GitHub:** https://alexjordane.github.io/calculadora_experiencia/
+- **Aplicação Online (HTML / GitHub Pages):** https://alexjordane.github.io/calculadora_experiencia/
+- **Repositório no GitHub:** https://github.com/AlexJordane/calculadora_experiencia/
 
 ---
 
@@ -37,13 +38,13 @@ pip install streamlit
 streamlit run calculadora_experiencia.py
 ```
 
-### 2. Versão Web Standalone (`Calculadora.html`)
+### 2. Versão Web Standalone (`index.html` / `Calculadora.html`)
 Aplicação em arquivo único (**HTML + CSS/Tailwind + JavaScript**), que roda diretamente no navegador sem necessidade de servidor ou instalação de pacotes.
 - Interface responsiva com painel lateral explicativo retrátil.
 - Apresenta o resultado em **anos arredondados** e **meses arredondados**, além do resumo de **total de dias**, **anos inteiros** e **dias restantes**.
 
 **Como executar:**
-Basta abrir o arquivo `Calculadora.html` em qualquer navegador web.
+Acesse diretamente via [GitHub Pages](https://alexjordane.github.io/calculadora_experiencia/) ou abra o arquivo `index.html` (ou `Calculadora.html`) em qualquer navegador web.
 
 ---
 
