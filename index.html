@@ -248,7 +248,8 @@
       color: #2b6cb0;
     }
 
-    .info-card ul, .info-card ol {
+    .info-card ul,
+    .info-card ol {
       margin: 0;
       padding-left: 20px;
       color: #4a5568;
@@ -281,6 +282,7 @@
       .container {
         padding: 24px 18px;
       }
+
       .actions-bar .btn {
         width: 100%;
         justify-content: center;
@@ -299,7 +301,8 @@
     </div>
 
     <div class="instituicao">
-      Instituto Federal do Espírito Santo &bull; Pós-Graduação / Licenciatura em Matemática
+      <p>Instituto Federal do Espírito Santo</p>
+      <p>Licenciatura em Matemática &bull; Educimat</p>
     </div>
 
     <h1>Calculadora de Tempo de Experiência</h1>
@@ -315,17 +318,22 @@
       <a href="calculadora_experiencia.py" class="btn btn-secondary" download>
         🐍 Código Python (.py)
       </a>
-      <a href="https://github.com/AlexJordane/calculadora_experiencia/" class="btn btn-secondary" target="_blank" rel="noopener">
+      <a href="https://github.com/AlexJordane/calculadora_experiencia/" class="btn btn-secondary" target="_blank"
+        rel="noopener">
         🔗 Repositório no GitHub
       </a>
     </div>
 
     <div class="intro-box">
       <p>
-        Ferramenta desenvolvida para apurar o tempo total de experiência profissional de forma ágil e precisa, especialmente voltada para a análise de pontuação e requisitos em <strong>concursos públicos e editais de seleção</strong>.
+        Ferramenta desenvolvida para apurar o tempo total de experiência profissional de forma ágil e precisa,
+        especialmente voltada para a análise de pontuação e requisitos em <strong>concursos públicos e editais de
+          seleção</strong>.
       </p>
       <p>
-        Muitas vezes, candidatos possuem vínculos de trabalho simultâneos (períodos concomitantes), e a soma simples pode gerar contagem duplicada. Esta calculadora resolve esse problema fundindo automaticamente os períodos sobrepostos em blocos únicos contínuos.
+        Muitas vezes, candidatos possuem vínculos de trabalho simultâneos (períodos concomitantes), e a soma simples
+        pode gerar contagem duplicada. Esta calculadora resolve esse problema fundindo automaticamente os períodos
+        sobrepostos em blocos únicos contínuos.
       </p>
     </div>
 
@@ -333,10 +341,15 @@
 
     <div class="info-card">
       <ul>
-        <li><strong>União de períodos concomitantes:</strong> Se dois ou mais períodos possuem interseção de datas, eles são mesclados em um único intervalo contínuo para que nenhum dia seja contabilizado em duplicidade.</li>
-        <li><strong>Contagem inclusiva:</strong> Tanto a data de início quanto a data de fim são incluídas na soma de dias ($\text{fim} - \text{início} + 1$).</li>
-        <li><strong>Padrão em anos:</strong> Considera-se o ano padrão de <strong>365 dias</strong>. Quando a sobra após os anos inteiros atinge <strong>180 dias ou mais</strong>, acrescenta-se 1 ano ao total arredondado.</li>
-        <li><strong>Padrão em meses (versão HTML):</strong> Considera-se o mês comercial de <strong>30 dias</strong>. Quando a sobra após os meses inteiros atinge <strong>15 dias ou mais</strong>, acrescenta-se 1 mês ao total arredondado.</li>
+        <li><strong>União de períodos concomitantes:</strong> Se dois ou mais períodos possuem interseção de datas, eles
+          são mesclados em um único intervalo contínuo para que nenhum dia seja contabilizado em duplicidade.</li>
+        <li><strong>Contagem inclusiva:</strong> Tanto a data de início quanto a data de fim são incluídas na soma de
+          dias ($\text{fim} - \text{início} + 1$).</li>
+        <li><strong>Padrão em anos:</strong> Considera-se o ano padrão de <strong>365 dias</strong>. Quando a sobra após
+          os anos inteiros atinge <strong>180 dias ou mais</strong>, acrescenta-se 1 ano ao total arredondado.</li>
+        <li><strong>Padrão em meses (versão HTML):</strong> Considera-se o mês comercial de <strong>30 dias</strong>.
+          Quando a sobra após os meses inteiros atinge <strong>15 dias ou mais</strong>, acrescenta-se 1 mês ao total
+          arredondado.</li>
       </ul>
     </div>
 
@@ -349,7 +362,8 @@
           <span class="badge badge-azul">Versão Web Standalone</span>
           <h3>1. Calculadora em HTML / JS (<code>Calculadora.html</code>)</h3>
           <p>
-            Aplicação em arquivo único que roda diretamente no navegador sem necessidade de servidor ou instalação de pacotes.
+            Aplicação em arquivo único que roda diretamente no navegador sem necessidade de servidor ou instalação de
+            pacotes.
           </p>
           <ul>
             <li>Interface responsiva com painel lateral explicativo retrátil.</li>
@@ -374,7 +388,8 @@
             <li>Exibe a lista detalhada dos períodos resultantes após a união das interseções.</li>
           </ul>
         </div>
-        <a href="https://calculadoraexperiencia.streamlit.app/" target="_blank" rel="noopener" class="btn btn-teal" style="justify-content: center;">Acessar no Streamlit Cloud</a>
+        <a href="https://calculadoraexperiencia.streamlit.app/" target="_blank" rel="noopener" class="btn btn-teal"
+          style="justify-content: center;">Acessar no Streamlit Cloud</a>
       </div>
     </div>
 
@@ -382,7 +397,8 @@
 
     <div class="info-card">
       <ol>
-        <li>Insira a data de <strong>Início</strong> e <strong>Fim</strong> de cada período profissional (pares em branco são ignorados).</li>
+        <li>Insira a data de <strong>Início</strong> e <strong>Fim</strong> de cada período profissional (pares em
+          branco são ignorados).</li>
         <li>Caso precise de mais de 5 períodos, clique em <strong>"Adicionar novo período"</strong>.</li>
         <li>Clique em <strong>"Calcular Tempo de Experiência"</strong> para visualizar os resultados.</li>
         <li>Para limpar todos os campos e recomeçar, clique em <strong>"Novo Cálculo"</strong>.</li>
@@ -391,8 +407,10 @@
 
     <footer class="footer">
       <p>
-        <strong>Autoria:</strong> Elaborado por Alex Jordane, em colaboração com Inteligência Artificial (Gemini 3.1 Pro e Canva).<br>
-        O compartilhamento e a reprodução deste material são permitidos para fins didáticos, desde que citadas a fonte e a autoria.
+        <strong>Autoria:</strong> Elaborado por Alex Jordane, em colaboração com Inteligência Artificial (Gemini 3.1 Pro
+        e Canva).<br>
+        O compartilhamento e a reprodução deste material são permitidos para fins didáticos, desde que citadas a fonte e
+        a autoria.
       </p>
       <img src="https://alexjordane.github.io/CC.png" alt="Licença Creative Commons">
     </footer>
