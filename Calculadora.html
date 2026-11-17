@@ -178,7 +178,8 @@
             background-color: var(--badge-bg);
         }
 
-        button:active, .btn-top:active {
+        button:active,
+        .btn-top:active {
             transform: scale(0.98);
         }
 
@@ -192,6 +193,56 @@
             border-radius: 999px;
             background-color: var(--badge-bg);
             color: var(--accent);
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-logos img {
+            max-height: 64px;
+            width: auto;
+        }
+
+        .header-logos img.logo-destaque {
+            max-height: 96px;
+        }
+
+        .instituicao {
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .instituicao p {
+            margin: 2px 0;
+        }
+
+        .header-title {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 8px;
+            text-align: center;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .header-subtitulo {
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
         .reveal {
@@ -226,6 +277,26 @@
 
 <body>
     <main class="w-full max-w-[1280px] mx-auto px-4 sm:px-8 py-8 sm:py-10">
+        <header class="panel-card p-6 sm:p-8 mb-6 reveal">
+            <div class="header-logos">
+                <img src="https://alexjordane.github.io/Limat.jpeg" alt="Limat" class="logo-destaque">
+                <img src="https://alexjordane.github.io/ifes.png" alt="Instituto Federal do Espírito Santo">
+                <img src="https://alexjordane.github.io/Educimat.png" alt="Educimat" class="logo-destaque">
+            </div>
+
+            <div class="instituicao">
+                <p>Instituto Federal do Espírito Santo</p>
+                <p>Licenciatura em Matemática &bull; Educimat</p>
+                <p>Professor Alex Jordane</p>
+            </div>
+
+            <h1 class="header-title">Calculadora de Tempo de Experiência</h1>
+            <p class="header-subtitulo">
+                Informe os períodos de trabalho para descobrir o tempo total de experiência. Datas sobrepostas entram na
+                conta uma única vez.
+            </p>
+        </header>
+
         <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
             <div class="flex items-center gap-3">
                 <a href="index.html" class="btn-top">&larr; Voltar</a>
@@ -246,12 +317,14 @@
                 <section aria-labelledby="about-title">
                     <h2 id="about-title" class="text-xl font-bold text-[#1a202c] mb-3">Sobre a Calculadora</h2>
                     <p class="mb-3">
-                        Esta ferramenta foi criada para oferecer agilidade no cálculo do tempo de experiência de trabalho,
+                        Esta ferramenta foi criada para oferecer agilidade no cálculo do tempo de experiência de
+                        trabalho,
                         especialmente para situações que envolvem o cálculo de tempo em concursos públicos e editais de
                         seleção.
                     </p>
                     <p>
-                        Muitas vezes, os períodos de experiência são concomitantes e a contagem tradicional pode levar a erros
+                        Muitas vezes, os períodos de experiência são concomitantes e a contagem tradicional pode levar a
+                        erros
                         de cálculo, resultando em uma contagem duplicada do tempo. A calculadora foi projetada para
                         lidar com essas situações, unindo os períodos de experiência concomitantes e garantindo uma
                         contagem precisa do tempo total de experiência.
@@ -263,9 +336,11 @@
                 <section aria-labelledby="logic-title">
                     <h2 id="logic-title" class="text-lg font-bold text-[#1a202c] mb-3">Como funciona a lógica:</h2>
                     <ul class="list-disc space-y-2">
-                        <li><strong>União de períodos:</strong> Se dois períodos de trabalho possuem datas concomitantes, a calculadora os une em um único bloco contínuo.</li>
+                        <li><strong>União de períodos:</strong> Se dois períodos de trabalho possuem datas
+                            concomitantes, a calculadora os une em um único bloco contínuo.</li>
                         <li><strong>Padrão de tempo:</strong> Para os cálculos, consideramos o ano com 365 dias.</li>
-                        <li><strong>Arredondamento:</strong> Quando o tempo restante após o cálculo dos anos inteiros atinge 180 dias ou mais, ele é contado como um novo ano completo.</li>
+                        <li><strong>Arredondamento:</strong> Quando o tempo restante após o cálculo dos anos inteiros
+                            atinge 180 dias ou mais, ele é contado como um novo ano completo.</li>
                     </ul>
                 </section>
 
@@ -287,16 +362,6 @@
             </aside>
 
             <div class="min-w-0">
-                <header class="mb-7 max-w-3xl reveal">
-                    <span class="badge-pill mb-3">FERRAMENTA DE CÁLCULO</span>
-                    <h1 class="text-3xl sm:text-4xl font-bold text-[#1a202c] leading-tight mb-2">
-                        Cálculo de Tempo de Experiência
-                    </h1>
-                    <p class="text-[#4a5568] text-base sm:text-lg leading-relaxed max-w-2xl">
-                        Informe os períodos de trabalho para descobrir o tempo total de experiência. Datas sobrepostas entram na conta uma única vez.
-                    </p>
-                </header>
-
                 <section class="panel-card p-5 sm:p-8 reveal" aria-labelledby="section-title">
                     <div class="flex flex-wrap justify-between items-end gap-3 mb-6 pb-4 border-b border-[#edf2f7]">
                         <div>
@@ -316,11 +381,13 @@
                                 <h3 class="text-base font-bold text-[#2b6cb0] mb-3">Período 1</h3>
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="start-1">Início</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="start-1">Início</label>
                                         <input class="date-field start-date" id="start-1" type="date">
                                     </div>
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="end-1">Fim</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="end-1">Fim</label>
                                         <input class="date-field end-date" id="end-1" type="date">
                                     </div>
                                 </div>
@@ -330,11 +397,13 @@
                                 <h3 class="text-base font-bold text-[#2b6cb0] mb-3">Período 2</h3>
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="start-2">Início</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="start-2">Início</label>
                                         <input class="date-field start-date" id="start-2" type="date">
                                     </div>
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="end-2">Fim</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="end-2">Fim</label>
                                         <input class="date-field end-date" id="end-2" type="date">
                                     </div>
                                 </div>
@@ -344,11 +413,13 @@
                                 <h3 class="text-base font-bold text-[#2b6cb0] mb-3">Período 3</h3>
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="start-3">Início</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="start-3">Início</label>
                                         <input class="date-field start-date" id="start-3" type="date">
                                     </div>
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="end-3">Fim</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="end-3">Fim</label>
                                         <input class="date-field end-date" id="end-3" type="date">
                                     </div>
                                 </div>
@@ -358,11 +429,13 @@
                                 <h3 class="text-base font-bold text-[#2b6cb0] mb-3">Período 4</h3>
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="start-4">Início</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="start-4">Início</label>
                                         <input class="date-field start-date" id="start-4" type="date">
                                     </div>
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="end-4">Fim</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="end-4">Fim</label>
                                         <input class="date-field end-date" id="end-4" type="date">
                                     </div>
                                 </div>
@@ -372,11 +445,13 @@
                                 <h3 class="text-base font-bold text-[#2b6cb0] mb-3">Período 5</h3>
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="start-5">Início</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="start-5">Início</label>
                                         <input class="date-field start-date" id="start-5" type="date">
                                     </div>
                                     <div>
-                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]" for="end-5">Fim</label>
+                                        <label class="block mb-1.5 text-sm font-semibold text-[#4a5568]"
+                                            for="end-5">Fim</label>
                                         <input class="date-field end-date" id="end-5" type="date">
                                     </div>
                                 </div>
@@ -387,7 +462,9 @@
                             + Adicionar novo período
                         </button>
 
-                        <p id="error" class="hidden mt-5 p-4 rounded-lg bg-[#fed7d7] text-[#9b2c2c] border-l-4 border-[#e53e3e] font-medium" role="alert"></p>
+                        <p id="error"
+                            class="hidden mt-5 p-4 rounded-lg bg-[#fed7d7] text-[#9b2c2c] border-l-4 border-[#e53e3e] font-medium"
+                            role="alert"></p>
 
                         <div class="flex flex-col sm:flex-row gap-3 mt-7 pt-6 border-t border-[#e2e8f0]">
                             <button type="submit" class="btn-primary">
@@ -444,11 +521,13 @@
             <h3 data-template-id="extra-period-title" class="text-base font-bold text-[#2b6cb0] mb-3"></h3>
             <div class="grid sm:grid-cols-2 gap-4">
                 <div>
-                    <label data-template-id="extra-start-label" class="block mb-1.5 text-sm font-semibold text-[#4a5568]">Início</label>
+                    <label data-template-id="extra-start-label"
+                        class="block mb-1.5 text-sm font-semibold text-[#4a5568]">Início</label>
                     <input class="date-field start-date" type="date">
                 </div>
                 <div>
-                    <label data-template-id="extra-end-label" class="block mb-1.5 text-sm font-semibold text-[#4a5568]">Fim</label>
+                    <label data-template-id="extra-end-label"
+                        class="block mb-1.5 text-sm font-semibold text-[#4a5568]">Fim</label>
                     <input class="date-field end-date" type="date">
                 </div>
             </div>
