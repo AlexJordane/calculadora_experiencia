@@ -7,7 +7,7 @@ Muitas vezes, candidatos possuem vínculos de trabalho simultâneos (períodos c
 ## Links de Acesso
 
 - **Aplicação Online (Streamlit):** https://calculadoraexperiencia.streamlit.app/
-- **Repositório no GitHub:** https://github.com/AlexJordane/calculadora_experiencia/
+- **Repositório no GitHub:** https://alexjordane.github.io/calculadora_experiencia/
 
 ---
 
