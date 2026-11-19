@@ -46,6 +46,33 @@
       flex-wrap: wrap;
     }
 
+    .top-nav {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .btn-portal {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #4a5568;
+      background-color: #edf2f7;
+      border: 1px solid #cbd5e0;
+      padding: 7px 14px;
+      border-radius: 8px;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-portal:hover {
+      background-color: #2b6cb0;
+      color: #ffffff;
+      border-color: #2b6cb0;
+    }
+
     .header-logos img {
       max-height: 64px;
       width: auto;
@@ -324,6 +351,10 @@
 <body>
 
   <div class="container">
+    <div class="top-nav">
+      <a href="https://alexjordane.github.io/" class="btn-portal">🏠 Portal Principal</a>
+    </div>
+
     <div class="header-logos">
       <img src="https://alexjordane.github.io/Limat.jpeg" alt="Limat" class="logo-destaque">
       <img src="https://alexjordane.github.io/ifes.png" alt="Instituto Federal do Espírito Santo">
